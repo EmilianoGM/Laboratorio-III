@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript">
+    var obj = {"codigoBarra":"ddd487", "nombre":"aceite", "precio":78.5};
+    var ajax = new XMLHttpRequest();
+    ajax.open("POST", "./json_test.php");
+    ajax.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    ajax.send("producto=" + JSON.stringify(obj));
+    ajax.onreadystatechange = () => {
+      if(ajax.readyState == 4 && ajax.status == 200){
+        var nuevoObj = JSON.parse(ajax.responseText);
+        console.log(nuevoObj);
+      } else {
+        console.log("Error");
+      }
+    }
+    //alert(obj);
+    //console.log(obj);
+  </script>
+  <title>Ejercicio 1 JSON </title>
+</head>
+<body>
+
+</body>
+</html>

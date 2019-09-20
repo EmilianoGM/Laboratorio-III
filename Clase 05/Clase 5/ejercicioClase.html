@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript">
+        var ajax = new XMLHttpRequest();
+        ajax.open("POST", "./json_read.php");
+        ajax.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        ajax.send();
+        ajax.onreadystatechange = () => {
+          if(ajax.readyState == 4 && ajax.status == 200){
+            var nuevoObj = JSON.parse(ajax.responseText);
+            var tabla = "<table><tr>" +
+            "<td>Id</td><td>Marca</td><td>Precio</td><td>Color</td><td>Modelo</td><td></td>";
+            for (let i = 0; i < nuevoObj.length; i++) {
+                tabla += "<tr><td>" + nuevoObj[i].Id + "</td><td>" + nuevoObj[i].Marca +
+                    "</td><td>" + nuevoObj[i].Precio + "</td><td>"+ nuevoObj[i].Color + "</td><td>" +
+                    nuevoObj[i].Modelo + "</td></tr>";
+            }
+            tabla += "</tr></table>";
+            console.log(nuevoObj);
+            document.write(tabla);
+          } else {
+            console.log("Error");
+          }
+        }
+        //alert(obj);
+        //console.log(obj);
+    </script>
+    <style>
+          table,td {
+              border: black 3px solid;
+          }
+    </style>
+    <title>ejercicio clase 5</title>
+</head>
+<body>
+    <input>
+</body>
+</html>
