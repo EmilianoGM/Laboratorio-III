@@ -1,0 +1,16 @@
+.error{
+    visibility: visible;
+    background-color: red;
+    color: white;
+}
+
+.exito{
+    visibility: visible;
+    background-color: green;
+    color: white;
+}
+
+div{
+    visibility: hidden;
+    width: 20%;
+}
