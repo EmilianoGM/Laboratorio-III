@@ -1,4 +1,5 @@
 /*
+tsc --outfile main.js primero.ts segundo.ts tercero.ts
 ******Tipos******
 Number
 var numero : number = 56.5;
